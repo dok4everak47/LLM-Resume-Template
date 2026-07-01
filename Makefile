@@ -1,24 +1,24 @@
-SRC_DIR := src
-PDF_DIR := pdf
-ASSETS_DIR := assets
-DEPS    := $(SRC_DIR)/resume.cls
-
-# 列出所有简历，每行一个，用空格分隔
-RESUMES := \
-	resume-kimi \
-	resume-deepseek
-
-PDFS    := $(foreach r,$(RESUMES),$(PDF_DIR)/$(r).pdf)
-
-all: $(PDFS)
-
 LATEXMK := /Library/TeX/texbin/latexmk
+ROOT := $(shell pwd)
+DIRS := kimi deepseek model
 
-$(PDF_DIR)/%.pdf: $(SRC_DIR)/%.tex $(DEPS)
-	@mkdir -p $(PDF_DIR)
-	cd $(SRC_DIR) && $(LATEXMK) -xelatex -output-directory=../$(PDF_DIR) $*.tex
+.PHONY: all clean cleanall $(DIRS)
+
+all: $(DIRS)
+
+$(DIRS):
+	@echo "=== Compiling $@ ==="
+	cd $(ROOT)/$@ && $(LATEXMK) -xelatex $@.tex
 
 clean:
-	rm -rf $(PDF_DIR)
+	@for d in $(DIRS); do \
+		cd $(ROOT)/$$d && $(LATEXMK) -C $$d.tex 2>/dev/null || true; \
+	done
 
-.PHONY: all clean
+cleanall:
+	@for d in $(DIRS); do \
+		cd $(ROOT)/$$d && $(LATEXMK) -C $$d.tex 2>/dev/null || true; \
+		rm -f $(ROOT)/$$d/*.pdf $(ROOT)/$$d/*.xdv $(ROOT)/$$d/*.aux \
+		      $(ROOT)/$$d/*.log $(ROOT)/$$d/*.fls $(ROOT)/$$d/*.fdb_latexmk \
+		      $(ROOT)/$$d/*.out $(ROOT)/$$d/*.synctex.gz; \
+	done

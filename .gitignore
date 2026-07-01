@@ -9,8 +9,14 @@
 *.xdv
 
 # Compiled PDFs (build locally)
-pdf/
-src/*.pdf
+kimi/*.pdf
+deepseek/*.pdf
+model/*.pdf
+
+# Symlinks
+kimi/resume.cls
+deepseek/resume.cls
+model/resume.cls
 
 # macOS
 .DS_Store
