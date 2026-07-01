@@ -144,18 +144,40 @@
 \sectionTitle{个人项目}{\faRocket}
 %======================================================================
 \begin{itemize}
-    \item \textbf{Claude Code from Scratch} \hfill 20XX.X --- 20XX.X
+    \item \textbf{Claude Code from Scratch — Coding Agent 核心架构复现与扩展}
+
+    基于开源教程项目，从零实现 Claude Code 核心的 Agent Harness 架构，涵盖 Agent Loop、工具系统、提示词工程、CLI/REPL、上下文压缩、记忆系统、多 Agent 架构和 MCP 协议集成等 12 个核心模块，总代码量约 4300 行。
+
     \begin{itemize}
-        \item \textbf{项目简介}: 从零实现 Claude Code 核心功能的开源学习项目，深入理解 Agent Loop、Tool System 和 Prompt 模板机制
-        \item \textbf{技术方案}: Python 实现 Agent 框架，支持自定义工具（count\_lines、git\_status 等）、模板变量（\{\{user\_name\}\}、\{\{project\_name\}\}）和 CLAUDE.md 规则注入
-        \item \textbf{技术栈}: Python, dotenv, Jinja2-like 模板引擎, CLI 设计
+        \item 完整构建了 Agent 执行循环（LLM 调用 → 工具执行 → 结果观察 → 循环调度），支持流式输出与工具早期并行执行
+        \item 实现了 13 个内置工具（文件读写、代码搜索、命令执行等），含 mtime 防护和延迟加载机制
+        \item 设计并实现了分层上下文压缩策略（4 层渐进压缩），以及多类型记忆系统（短期/长期/语义/结构化）
+        \item 集成 MCP 协议（JSON-RPC over stdio），支持外部工具的动态注册与发现
+        \item 独立扩展：添加中文双语 System Prompt 模板引擎，支持 \{\{user\_name\}\}、\{\{project\_name\}\} 等动态变量注入；扩展自定义 REPL 命令体系，修改 Agent 核心逻辑并验证通过
     \end{itemize}
+
+    技术栈：TypeScript, Node.js, Anthropic / OpenAI API \\
+    项目地址：\url{https://github.com/dok4everak47/claude-code-from-scratch}
+
+
+    \item \textbf{Agent Harness 行为分析与评测工具链}
+
+    自建 Agent 对话日志分析系统，使用 TypeScript + Python（Pandas / NumPy / scikit-learn）处理 5.8 万条对话日志，解决多源日志交错解析、噪声清洗等工程问题。
+
+    \begin{itemize}
+        \item 基于日志分析提出三层分级记忆模型与动态摘要缓存方案，对应 Harness 中的 Memory 和 Context Engineering 优化方向
+        \item 对 Pi / Claude / ChatGPT / DeepSeek 进行对比测试，建立 Agent 行为对比评测框架，产出「情绪-风格解耦对齐」「阈值触发式风格切换」「跨对话情绪」3 项可量化洞察
+        \item 分析脚本可扩展用于任意 Agent 对话日志的行为模式提取与量化分析
+    \end{itemize}
+
+    技术栈：TypeScript, Python, Pandas, NumPy, scikit-learn \\
+    项目地址：\url{https://github.com/dok4everak47/agent-harness-analysis}
+
 
     \item \textbf{LeetCode TI150 刷题笔记} \hfill 20XX.X --- 至今
     \begin{itemize}
-        \item \textbf{项目简介}: LeetCode Top Interview 150 分类刷题记录，涵盖数组、链表、树、动态规划等 23 个分类
-        \item \textbf{实现方式}: 本地 Obsidian 笔记 + index.html 可视化进度追踪，每题包含思路分析、多解法对比和复杂度分析
-        \item \textbf{技术栈}: Python, JavaScript, HTML, Markdown
+        \item LeetCode Top Interview 150 分类刷题，涵盖数组、链表、树、动态规划等 23 个分类；本地 Obsidian 笔记 + index.html 可视化进度追踪
+        \item 技术栈：Python, JavaScript, HTML, Markdown
     \end{itemize}
 \end{itemize}
 
