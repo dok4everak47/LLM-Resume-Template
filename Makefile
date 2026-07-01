@@ -1,62 +1,24 @@
-DEPS:= resume.cls
-SRCS:= resume-zh.tex resume-en.tex
-PDFS:= $(SRCS:%.tex=%.pdf)
-PDFCAT:= resume-zh+en.pdf
+SRC_DIR := src
+PDF_DIR := pdf
+ASSETS_DIR := assets
+DEPS    := $(SRC_DIR)/resume.cls
 
-DATE= $(shell date +%Y%m%d)
-DISTDIR= resume.$(DATE)
+# 列出所有简历，每行一个，用空格分隔
+RESUMES := \
+	resume-kimi \
+	resume-deepseek
 
-all: $(PDFCAT)
-en: resume-en.pdf
-zh: resume-zh.pdf
+PDFS    := $(foreach r,$(RESUMES),$(PDF_DIR)/$(r).pdf)
 
-$(PDFCAT): $(PDFS)
-	gs -dBATCH -dNOPAUSE -dPrinted=false \
-		-sDEVICE=pdfwrite \
-		-sOutputFile=$@ \
-		$(PDFS)
+all: $(PDFS)
 
-%.pdf: %.tex $(DEPS)
-	latexmk -xelatex $<
+LATEXMK := /Library/TeX/texbin/latexmk
 
-dist: all
-	mkdir $(DISTDIR)
-	cp Makefile $(DEPS) $(SRCS) $(PDFS) $(DISTDIR)/
-	tar -cjf $(DISTDIR).tar.bz2 $(DISTDIR)/
-	rm -r $(DISTDIR)
+$(PDF_DIR)/%.pdf: $(SRC_DIR)/%.tex $(DEPS)
+	@mkdir -p $(PDF_DIR)
+	cd $(SRC_DIR) && $(LATEXMK) -xelatex -output-directory=../$(PDF_DIR) $*.tex
 
 clean:
-	for f in $(SRCS); do \
-		latexmk -c $$f; \
-	done
-	touch $(SRCS)
+	rm -rf $(PDF_DIR)
 
-cleanall:
-	for f in $(SRCS); do \
-		latexmk -C $$f; \
-	done
-
-.PHONY: all en zh dist clean cleanall
-
-DOCKER_CLI?=	sudo docker
-DOCKER_IMAGE:=	resume:test
-DOCKER_CHOWN:=	chown -R $(shell id -u):$(shell id -g) .
-
-# build the resume within an docker container
-docker:
-	$(DOCKER_CLI) image inspect -f 'ok' $(DOCKER_IMAGE) 2>/dev/null || \
-	{ \
-		rm -rf _empty && \
-		mkdir _empty && \
-		$(DOCKER_CLI) build --tag $(DOCKER_IMAGE) \
-			-f Dockerfile _empty && \
-		rmdir _empty; \
-	}
-	$(DOCKER_CLI) run --rm --volume $(PWD):/build $(DOCKER_IMAGE) \
-		sh -c "cd /build && make clean && make && $(DOCKER_CHOWN)"
-
-podman: DOCKER_CLI=podman
-podman: DOCKER_CHOWN=:
-podman: docker
-
-.PHONY: docker podman
+.PHONY: all clean
