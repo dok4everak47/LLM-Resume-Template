@@ -1,0 +1,134 @@
+%%
+%% Copyright (c) 2018-2020 Weitian LI <wt@liwt.net>
+%% CC BY 4.0 License
+%%
+%% Created: 2018-04-11
+%%
+
+% Chinese version
+\documentclass[zh]{resume}
+
+% === 强制一页:紧缩间距 ===
+\usepackage{geometry}
+\geometry{margin=0.9cm}           % 默认 1.5cm → 0.9cm
+\linespread{1.1}               % 中文默认 1.25 → 1.1
+\titlespacing{\section}{0em}{0.5ex}{0.5ex}  % 节前后间距减半
+\setlist[itemize,1]{label=\faAngleRight, nosep, leftmargin=2em, topsep=1pt}
+\setlength{\medskipamount}{4pt}
+
+% File information shown at the footer of the last page
+\fileinfo{%
+  % \faCopyright{} 2025--2026, 阿东玩AI \hspace{0.5em}
+  % \creativecommons{by}{4.0} \hspace{0.5em}
+  % \githublink{dok4everak47}{LLM-Resume-Template} \hspace{0.5em}
+  % \faEdit{} \today
+}
+
+\name{劲舟}{梁}
+
+\tagline{求职意向: 中/高级全栈开发工程师（后端）}
+
+\photo[shape=circular, position=right]{1.5cm}{../assets/luongchin.png}
+
+\profile{
+  \mobile{18176608865}
+  \email{dok4ever123@126.com}
+  \iconlink{\faGithub}{https://github.com/dok4everak47}{dok4everak47}
+}
+
+\begin{document}
+\begin{tcolorbox}[colback=accentcolor!12, colframe=accentcolor!20,
+  arc=0pt, boxrule=0.3pt, left=6pt, right=6pt, top=3pt, bottom=3pt,
+  sharp corners]
+\makeheader
+\end{tcolorbox}
+
+\vspace{0.3em}
+
+%======================================================================
+\sectionTitle{个人总结}{\faUser}
+%======================================================================
+具有数学与计算科学背景的开发者。在 claude-code-from-scratch 项目中从零搭建了一套完整的 Agent 系统架构，
+涵盖执行循环调度、工具系统、CLI/REPL 交互、MCP 数据传输协议等模块，体现了系统设计、模块拆分与
+工程落地的能力。熟悉 TypeScript 和 Python，有数据处理、日志分析和质量评估经验。
+
+
+%======================================================================
+\sectionTitle{专业技能}{\faWrench}
+%======================================================================
+\begin{itemize}
+    \item \textbf{编程语言}: TypeScript, Python, Node.js, JavaScript, SQL
+    \item \textbf{后端开发}: Node.js / TypeScript, CLI 工具开发, REST API 集成（Anthropic / OpenAI）, MCP 协议（JSON-RPC）, 事件循环调度, 系统架构设计
+    \item \textbf{全栈能力}: CLI/REPL 交互设计, Agent 执行循环调度, 前端基础（HTML, CSS, JavaScript）
+    \item \textbf{工具链}: Git, Linux 命令行, Docker, Vim/Neovim, VSCode
+    \item \textbf{数据分析}: 日志采集与分析, 数据清洗, 质量评估体系构建
+\end{itemize}
+
+%======================================================================
+\sectionTitle{个人项目}{\faRocket}
+%======================================================================
+\begin{itemize}
+    \item[\faCode] \textbf{Claude Code from Scratch — Agent 系统架构实现}\\
+    技术栈: TypeScript, Node.js, Anthropic / OpenAI API \\
+    GitHub: \href{https://github.com/dok4everak47/claude-code-from-scratch}{\texttt{dok4everak47/claude-code-from-scratch}}
+
+    从零实现 Claude Code 核心的 Agent 系统架构，涵盖 Agent Loop、工具系统、CLI/REPL、
+    上下文压缩、记忆系统、多 Agent 架构和 MCP 协议集成等 12 个核心模块，总代码量约 4300 行。
+    \begin{itemize}
+        \item 完整构建 Agent 执行循环（LLM 调用 → 工具执行 → 结果观察 → 循环调度），搭载 13 个内置工具（含 mtime 防护与延迟加载），支持流式输出与工具并行执行
+        \item 设计分层上下文压缩策略（4 层渐进压缩）与多类型记忆系统（短期/长期/语义/结构化），集成 MCP 协议实现外部工具动态注册与发现
+        \item 独立扩展: 中文双语 System Prompt 模板引擎 + 自定义 REPL 命令体系，修改 Agent 核心逻辑并验证通过
+    \end{itemize}
+
+    \vspace{1ex}
+    {\color{accentcolor!15}\hrule}
+    \vspace{1ex}
+
+    \item[\faCode] \textbf{Agent 对话日志分析与评测工具链}\\
+    技术栈: TypeScript, Python, Pandas, NumPy, scikit-learn
+
+    自建 Agent 对话日志分析系统，处理 5.8 万条多源对话日志，解决日志交错解析、噪声清洗等问题。
+    \begin{itemize}
+        \item 基于日志分析提出三层分级记忆模型与动态摘要缓存方案
+        \item 对 Pi / Claude / ChatGPT / DeepSeek 进行对比测试，建立行为对比评测框架，产出 3 项可量化洞察
+        \item 分析脚本可扩展用于任意 Agent 对话日志的行为模式提取与量化分析
+    \end{itemize}
+\end{itemize}
+
+%======================================================================
+\sectionTitle{工作经历}{\faBriefcase}
+%======================================================================
+\begin{experiences}
+  \experience%
+    [2025.12]%
+    {2026.05}%
+    {广西一三数据科技有限公司 \quad AI训练师}%
+    [\begin{itemize}
+      \item 主导多模态 AIGC 数据评估体系的构建，制定覆盖 15+ 类场景的评估标准，将团队交付合格率提升至 98\%
+      \item 负责模型输出的质量分析与人工蒸馏，累计产出高质量偏好数据 100 万+条，支撑模型 RLHF 训练与能力迭代
+      \item 主导自动驾驶 3D 感知数据的标注策略制定，处理叠帧重影和移动物体轨迹连续性，确保数据质量一致性，累计处理 100 万+ 目标物
+    \end{itemize}]
+\end{experiences}
+
+%======================================================================
+\sectionTitle{教育背景}{\faGraduationCap}
+%======================================================================
+\begin{educations}
+  \education%
+    {2020.09}%
+    [2023.06]%
+    {桂林电子科技大学}%
+    {数学与计算科学学院}%
+    {数学}%
+    {硕士}
+  \separator{0.2ex}
+  \education%
+    {2016.09}%
+    [2020.06]%
+    {西安邮电大学}%
+    {理学院}%
+    {信息与计算科学}%
+    {学士}
+\end{educations}
+
+\end{document}

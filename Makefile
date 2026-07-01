@@ -1,11 +1,16 @@
 LATEXMK := /Library/TeX/texbin/latexmk
 ROOT := $(shell pwd)
-DIRS := kimi deepseek model
+# 公司文件夹
+DIRS := kimi deepseek model dji
 
 .PHONY: all clean cleanall $(DIRS)
 
 all: $(DIRS)
 
+# make kimi  → 编译 kimi/kimi-code.tex  (Coding Agent)
+# make dji   → 编译 dji/dji-fullstack.tex (全栈后端)
+# make deepseek → 编译 deepseek/deepseek.tex
+# make model → 编译 model/model.tex
 $(DIRS):
 	@echo "=== Compiling $@ ==="
 	cd $(ROOT)/$@ && $(LATEXMK) -xelatex $@.tex
