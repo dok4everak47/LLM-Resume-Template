@@ -14,6 +14,8 @@ all: $(DIRS)
 $(DIRS):
 	@echo "=== Compiling $@ ==="
 	cd $(ROOT)/$@ && $(LATEXMK) -xelatex $@.tex
+	@cd $(ROOT)/$@ && rm -f *.aux *.log *.out *.fls *.fdb_latexmk *.xdv *.synctex* 2>/dev/null || true
+	@echo "=== Done: $@/$@.pdf ==="
 
 clean:
 	@for d in $(DIRS); do \
