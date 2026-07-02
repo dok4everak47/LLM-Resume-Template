@@ -74,19 +74,16 @@
     \begin{itemize}
         \item 从零复现 Agent Harness 架构，实现 LLM 调用 → 工具执行 → 结果观察 → 循环调度的完整执行闭环，搭载 13 个内置工具（含 mtime 防护与延迟加载），支持流式输出与工具并行执行
         \item 设计 4 层渐进式上下文压缩策略与多类型记忆系统（短期/长期/语义/结构化），集成 MCP 协议实现外部工具动态注册
-        \item 独立扩展中文双语 System Prompt 模板引擎与自定义 REPL 命令体系 成果：总代码 4300+ 行，覆盖 12 个核心模块，输出系统化的 Agent 架构理解与方法论。
     \end{itemize}
 
     \vspace{1ex}
     {\color{accentcolor!15}\hrule}
     \vspace{1ex}
 
-    \item[\faCode] \textbf{Agent 对话日志分析与评测工具链}\\
-    技术栈: TypeScript, Python, Pandas, NumPy, scikit-learn
+    \item[\faCode] \textbf{Agent 对话日志分析与评测工具链} | TypeScript, Python, Pandas, NumPy, scikit-learn
 
     多 Agent 系统（Pi / Claude / ChatGPT / DeepSeek）在行为一致性、风格控制和跨会话情绪等方面缺乏可量化的对比评测框架。
     \begin{itemize}
-        \item 基于日志分析提出三层分级记忆模型与动态摘要缓存方案
         \item 对 Pi / Claude / ChatGPT / DeepSeek 进行对比测试，建立行为对比评测框架，产出 3 项可量化洞察
         \item 基于日志分析提出三层分级记忆模型与动态摘要缓存方案，对应 Harness 中 Memory 和 Context Engineering 优化方向
     \end{itemize}
