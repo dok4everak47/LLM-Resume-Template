@@ -26,7 +26,7 @@
 
 \name{劲舟}{梁}
 
-\tagline{求职意向: Agent Harness 方向}
+\tagline{求职意向: AI Agent 与强化学习方向（大模型后训练 / Agentic 系统）}
 
 \photo[shape=circular, position=right]{1.5cm}{../assets/luongchin.png}
 
@@ -48,56 +48,48 @@
 %======================================================================
 \sectionTitle{个人总结}{\faUser}
 %======================================================================
-具有数学与计算科学背景的 Agent Harness 研究者。对 LLM Agent 的 Agent Loop、Tool Use、Memory、Context
-Engineering 机制有深入研究，并通过 claude-code-from-scratch 项目从零复现了 Coding Agent 核心架构。熟悉
-TypeScript 和 Python，能动手构建 Agent 工具链和评测分析系统。热衷于拆解 Agent 行为、分析失败模式、推动 Agent 系统
-持续进化。
-\par\vspace{0.3ex}
-English: Fluent reading and writing — able to read technical papers and documentation,
-follow overseas AI communities and open-source projects.
+具有数学与计算科学背景的 Agent 研究者。对 LLM Agent 的 Agent Loop、Tool Use、Memory、Context Engineering 机制有深入研究，通过 claude-code-from-scratch 项目从零复现 Coding Agent 核心架构（4300+ 行 TypeScript）。具备 RLHF 偏好数据管线建设与多模态 AIGC 评估的实战经验，能动手构建 Agent 工具链与评测分析系统，热衷于拆解 Agent 行为、分析失败模式、推动 Agent 系统持续进化。
 
 
+%======================================================================
+\sectionTitle{专业技能}{\faWrench}
+%======================================================================
+\begin{itemize}
+    \item \textbf{编程语言}: TypeScript, Python, Node.js, JavaScript, SQL
+    \item \textbf{数据 / ML}: Pandas, NumPy, scikit-learn
+    \item \textbf{大模型后训练}: RLHF 偏好数据构建与质量评估、SFT/DPO 后训练流程、多模态 AIGC 评估、模型输出分析
+    \item \textbf{工具链}: Git, Linux 命令行, Docker, Vim/Neovim, VSCode
+    \item \textbf{Agent 工程}: Agent Loop / Tool Use / Prompt Engineering / MCP 协议 / Memory 系统 / Context Engineering
+\end{itemize}
 
 %======================================================================
 \sectionTitle{个人项目}{\faRocket}
 %======================================================================
 \begin{itemize}
-    \item[\faCode] \textbf{Claude Code from Scratch — Coding Agent 核心架构复现与扩展}
-
-    从零实现 Claude Code 核心的 Agent Harness 架构，涵盖 Agent Loop、工具系统、提示词工程、CLI/REPL、上下文压缩、记忆系统、多 Agent 架构和 MCP 协议集成等 12 个核心模块，总代码量约 4300 行。
-
+    \item[\faCode] \textbf{Claude Code from Scratch — Agent 系统架构实现}\\
     技术栈: TypeScript, Node.js, Anthropic / OpenAI API \\
     GitHub: \href{https://github.com/dok4everak47/claude-code-from-scratch}{\texttt{dok4everak47/claude-code-from-scratch}}
+
+    Coding Agent（如 Claude Code）的 Agent Loop、工具调用、上下文压缩等核心机制缺乏公开的系统级实现参考
     \begin{itemize}
-        \item 完整构建 Agent 执行循环（LLM 调用 → 工具执行 → 结果观察 → 循环调度），搭载 13 个内置工具（含 mtime 防护与延迟加载），支持流式输出与工具并行执行
-        \item 设计分层上下文压缩策略（4 层渐进压缩）与多类型记忆系统（短期/长期/语义/结构化），集成 MCP 协议实现外部工具动态注册
-        \item 独立扩展: 中文双语 System Prompt 模板引擎 + 自定义 REPL 命令体系，修改 Agent 核心逻辑并验证通过
+        \item 从零复现 Agent Harness 架构，实现 LLM 调用 → 工具执行 → 结果观察 → 循环调度的完整执行闭环，搭载 13 个内置工具（含 mtime 防护与延迟加载），支持流式输出与工具并行执行
+        \item 设计 4 层渐进式上下文压缩策略与多类型记忆系统（短期/长期/语义/结构化），集成 MCP 协议实现外部工具动态注册
+        \item 独立扩展中文双语 System Prompt 模板引擎与自定义 REPL 命令体系 成果：总代码 4300+ 行，覆盖 12 个核心模块，输出系统化的 Agent 架构理解与方法论。
     \end{itemize}
 
     \vspace{1ex}
     {\color{accentcolor!15}\hrule}
     \vspace{1ex}
 
-    \item[\faCode] \textbf{Agent Harness 行为分析与评测工具链}
-
-    自建 Agent 对话日志分析系统，使用 TypeScript + Python（Pandas / NumPy / scikit-learn）处理对话日志，解决多源日志交错解析、噪声清洗等工程问题。
-
+    \item[\faCode] \textbf{Agent 对话日志分析与评测工具链}\\
     技术栈: TypeScript, Python, Pandas, NumPy, scikit-learn
-    \begin{itemize}
-        \item 基于日志分析提出三层分级记忆模型与动态摘要缓存方案，对应 Harness 中的 Memory 和 Context Engineering 优化方向
-        \item 对 Pi / Claude / ChatGPT / DeepSeek 进行对比测试，建立 Agent 行为对比评测框架，产出「情绪-风格解耦对齐」「阈值触发式风格切换」「跨对话情绪」3 项可量化洞察
-        \item 分析脚本可扩展用于任意 Agent 对话日志的行为模式提取与量化分析
-    \end{itemize}
-\end{itemize}
 
-%======================================================================
-\sectionTitle{技术栈}{\faWrench}
-%======================================================================
-\begin{itemize}
-    \item \textbf{编程语言}: TypeScript, Python, Node.js, Pandas, NumPy, scikit-learn
-    \item \textbf{Agent 工程}: Agent Loop, Tool Use, MCP 协议, Memory 系统, Context Engineering
-    \item \textbf{大模型}: RLHF 数据构建与质量评估, LLM API 集成（Anthropic / OpenAI）
-    \item \textbf{工具链}: Git, CLI 开发, Linux, Docker, Vim/Neovim
+    多 Agent 系统（Pi / Claude / ChatGPT / DeepSeek）在行为一致性、风格控制和跨会话情绪等方面缺乏可量化的对比评测框架。
+    \begin{itemize}
+        \item 基于日志分析提出三层分级记忆模型与动态摘要缓存方案
+        \item 对 Pi / Claude / ChatGPT / DeepSeek 进行对比测试，建立行为对比评测框架，产出 3 项可量化洞察
+        \item 基于日志分析提出三层分级记忆模型与动态摘要缓存方案，对应 Harness 中 Memory 和 Context Engineering 优化方向
+    \end{itemize}
 \end{itemize}
 
 %======================================================================
@@ -111,7 +103,7 @@ follow overseas AI communities and open-source projects.
     [\begin{itemize}
       \item 主导多模态 AIGC 数据评估体系的构建，制定覆盖 15+ 类场景的评估标准，将团队交付合格率提升至 98\%
       \item 负责模型输出的质量分析与人工蒸馏，累计产出高质量偏好数据 100 万+条，支撑模型 RLHF 训练与能力迭代
-      \item 主导自动驾驶 3D 感知数据的标注策略制定，处理叠帧重影和移动物体轨迹连续性，确保 Agent 环境感知数据的质量一致性，累计处理 100 万+ 目标物，支撑自动驾驶模型环境理解精度提升
+      \item 主导自动驾驶 3D 感知数据的标注策略制定，处理叠帧重影和移动物体轨迹连续性，确保数据质量一致性，累计处理 100 万+ 目标物
     \end{itemize}]
 \end{experiences}
 
