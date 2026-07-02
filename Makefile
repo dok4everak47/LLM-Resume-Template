@@ -1,7 +1,7 @@
 LATEXMK := /Library/TeX/texbin/latexmk
 ROOT := $(shell pwd)
 # 公司文件夹
-DIRS := kimi deepseek model dji
+DIRS := kimi deepseek model dji tencent
 
 .PHONY: all clean cleanall $(DIRS)
 
