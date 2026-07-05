@@ -26,7 +26,7 @@
 
 \name{劲舟}{梁}
 
-\tagline{求职意向: AI Agent 与强化学习方向（大模型后训练 / Agentic 系统）}
+\tagline{求职意向: 数据科学方向（数据分析 / 特征工程 / 模型评估）}
 
 \photo[shape=circular, position=right]{1.5cm}{../assets/luongchin.png}
 
@@ -48,44 +48,40 @@
 %======================================================================
 \sectionTitle{个人总结}{\faUser}
 %======================================================================
-具有数学与计算科学背景的 Agent 研究者。对 LLM Agent 的 Agent Loop、Tool Use、Memory、Context Engineering 机制有深入研究，通过 claude-code-from-scratch 项目从零复现 Coding Agent 核心架构（4300+ 行 TypeScript）。具备 RLHF 偏好数据管线建设与多模态 AIGC 评估的实战经验，能动手构建 Agent 工具链与评测分析系统，热衷于拆解 Agent 行为、分析失败模式、推动 Agent 系统持续进化。
+具有数学与计算科学背景的数据方向候选人。硕士阶段打下扎实的数理统计与分析基础；实战中主导过多模态 AIGC 数据评估体系与 Agent 对话日志分析系统的搭建，能将复杂数据问题转化为可量化的分析方案，在数据质量管控、指标体系构建、特征提取和模型行为分析方面有深入的一线经验。
 
 
 %======================================================================
 \sectionTitle{专业技能}{\faWrench}
 %======================================================================
 \begin{itemize}
-    \item \textbf{编程语言}: TypeScript, Python, Node.js, JavaScript, SQL
-    \item \textbf{数据 / ML}: Pandas, NumPy, scikit-learn
-    \item \textbf{大模型后训练}: RLHF 偏好数据构建与质量评估、SFT/DPO 后训练流程、多模态 AIGC 评估、模型输出分析
+    \item \textbf{编程语言}: TypeScript, Python, Node.js, SQL
+    \item \textbf{数据分析}: Pandas, NumPy, scikit-learn, 数据清洗, 特征工程, 统计建模
+    \item \textbf{模型评估}: 多模态 AIGC 评估体系, Agent 行为对比评测, 标注质量控制, Benchmark 设计
     \item \textbf{工具链}: Git, Linux 命令行, Docker, Vim/Neovim, VSCode
-    \item \textbf{Agent 工程}: Agent Loop / Tool Use / Prompt Engineering / MCP 协议 / Memory 系统 / Context Engineering
 \end{itemize}
 
 %======================================================================
 \sectionTitle{个人项目}{\faRocket}
 %======================================================================
 \begin{itemize}
-    \item[\faCode] \textbf{Claude Code from Scratch — Agent 系统架构实现}
-    | TypeScript, Node.js, Anthropic / OpenAI API \\
+    \item[\faCode] \textbf{Claude Code from Scratch — 大型 Agent 系统架构实现}
+    | TypeScript, Node.js \\
     GitHub: \href{https://github.com/dok4everak47/claude-code-from-scratch}{\texttt{dok4everak47/claude-code-from-scratch}}
 
-    Coding Agent（如 Claude Code）的 Agent Loop、工具调用、上下文压缩等核心机制缺乏公开的系统级实现参考
-    \begin{itemize}
-        \item 从零复现 Agent Harness 架构，实现 LLM 调用 → 工具执行 → 结果观察 → 循环调度的完整执行闭环，搭载 13 个内置工具（含 mtime 防护与延迟加载），支持流式输出与工具并行执行
-        \item 设计 4 层渐进式上下文压缩策略与多类型记忆系统（短期/长期/语义/结构化），集成 MCP 协议实现外部工具动态注册
-    \end{itemize}
+    从零复现 Coding Agent 核心架构（4300+ 行），实现 LLM 调用→工具执行→结果观察→循环调度的完整闭环，设计分层上下文压缩与多类型记忆系统。体现了复杂系统的工程设计与数据流架构能力。
 
     \vspace{1ex}
     {\color{accentcolor!15}\hrule}
     \vspace{1ex}
 
-    \item[\faCode] \textbf{Agent 对话日志分析与评测工具链} | TypeScript, Python, Pandas, NumPy, scikit-learn
+    \item[\faCode] \textbf{Agent 对话日志数据分析与评测体系} | Python, Pandas, NumPy, scikit-learn
 
-    多 Agent 系统（Pi / Claude / ChatGPT / DeepSeek）在行为一致性、风格控制和跨会话情绪等方面缺乏可量化的对比评测框架。
+    多 Agent 系统（Pi / Claude / ChatGPT / DeepSeek）的对话日志包含大量非结构化文本，行为表现缺乏量化评测框架。
     \begin{itemize}
-        \item 对 Pi / Claude / ChatGPT / DeepSeek 进行对比测试，建立行为对比评测框架，产出 3 项可量化洞察
-        \item 基于日志分析提出三层分级记忆模型与动态摘要缓存方案，对应 Harness 中 Memory 和 Context Engineering 优化方向
+        \item 搭建对话日志数据处理管线，解决多源日志交错解析、噪声清洗等数据工程问题
+        \item 基于统计分析对多模型进行对比测试，建立行为对比评测框架，从情绪一致性、风格切换阈值、跨会话影响等维度产出量化洞察
+        \item 提出三层分级记忆模型与动态摘要缓存的数据方案，分析脚本可扩展用于任意 Agent 日志的行为模式提取
     \end{itemize}
 \end{itemize}
 
@@ -98,9 +94,9 @@
     {2026.05}%
     {广西一三数据科技有限公司 \quad AI训练师}%
     [\begin{itemize}
-      \item 主导多模态 AIGC 数据评估体系的构建，制定覆盖 15+ 类场景的评估标准，将团队交付合格率提升至 98\%
-      \item 负责模型输出的质量分析与人工蒸馏，累计产出高质量偏好数据 100 万+条，支撑模型 RLHF 训练与能力迭代
-      \item 主导自动驾驶 3D 感知数据的标注策略制定，处理叠帧重影和移动物体轨迹连续性，确保数据质量一致性，累计处理 100 万+ 目标物
+      \item 主导多模态 AIGC 数据评估体系建设，制定覆盖 15 类场景的评估标准与质量管控流程，将团队交付合格率提升至 98\%
+      \item 负责模型输出质量分析，累计处理并产出高质量偏好数据 100 万+条，支撑模型训练与能力迭代
+      \item 主导自动驾驶 3D 感知数据的标注策略制定与质量管控，处理叠帧重影和移动物体轨迹连续性问题，累计处理 100 万+ 目标物
     \end{itemize}]
 \end{experiences}
 

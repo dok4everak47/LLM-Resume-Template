@@ -52,9 +52,9 @@
 Engineering 机制有深入研究，并通过 claude-code-from-scratch 项目从零复现了 Coding Agent 核心架构。熟悉
 TypeScript 和 Python，能动手构建 Agent 工具链和评测分析系统。热衷于拆解 Agent 行为、分析失败模式、推动 Agent 系统
 持续进化。
-\par\vspace{0.3ex}
-English: Fluent reading and writing — able to read technical papers and documentation,
-follow overseas AI communities and open-source projects.
+% \par\vspace{0.3ex}
+% English: Fluent reading and writing — able to read technical papers and documentation,
+% follow overseas AI communities and open-source projects.
 
 %======================================================================
 \sectionTitle{专业技能}{\faWrench}
@@ -63,7 +63,7 @@ follow overseas AI communities and open-source projects.
     \item \textbf{编程语言}: TypeScript, Python, Node.js, Pandas, NumPy, scikit-learn
     \item \textbf{Agent 工程}: Agent Loop / Tool Use / Prompt Engineering / MCP 协议 / Memory 系统 / Context Engineering
     \item \textbf{大模型}: RLHF 数据构建与质量评估、模型输出分析、多模态 AIGC 评估
-    \item \textbf{工具链}: Git, CLI 工具开发, 日志分析, API 集成 (Anthropic / OpenAI)
+    \item \textbf{工具链}: Git, CLI 工具开发, 日志分析, Vercel Serverless 部署, API 集成 (Anthropic / OpenAI / DeepSeek)
 \end{itemize}
 
 %======================================================================
@@ -80,6 +80,9 @@ follow overseas AI communities and open-source projects.
         \item 完整构建 Agent 执行循环（LLM 调用 → 工具执行 → 结果观察 → 循环调度），搭载 13 个内置工具（含 mtime 防护与延迟加载），支持流式输出与工具并行执行
         \item 设计分层上下文压缩策略（4 层渐进压缩）与多类型记忆系统（短期/长期/语义/结构化），集成 MCP 协议实现外部工具动态注册
         \item 独立扩展: 中文双语 System Prompt 模板引擎 + 自定义 REPL 命令体系，修改 Agent 核心逻辑并验证通过
+        \item 扩展 Streaming Tool Executor：在 OpenAI 兼容后端实现流式工具提前执行，通过实时 JSON 完整性检测在流未结束时即启动工具调用，平均工具等待时间减少 2-5s
+        \item 实现 Auto-compact 熔断器与两阶段摘要策略：连续失败自动停用防止无限重试，分析-摘要（CoT）链式提示词保留关键决策与文件修改记录
+        \item 基于同一代码库开发 Agent Tool System Demo（React + Vite + Tailwind CSS）：场景模式逐帧观察 Agent 推理过程；自由模式实时调用 LLM API 执行真实 Agent Loop，流式渲染思考与 Tool Call；对比模式以 3 种 System Prompt 并行运行，并列展示 Tool Call 策略差异；Tool Call 依赖图可视化工具调用链；接入 Open-Meteo 真实天气 API；通过 Vercel Serverless Proxy 保护 API Key 不暴露公网
     \end{itemize}
 
     \vspace{1ex}
