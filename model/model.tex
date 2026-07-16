@@ -101,7 +101,8 @@
 
     以中国大陆四城（北京 / 上海 / 广州 / 深圳）25 条线路、684 座车站的中英文站名为题的打字练习网站；采用完全数据驱动架构，城市与线路存于单一 \texttt{metro.json}，新增城市 / 线路无需改动应用逻辑。
 
-    技术栈: React 18, Vite 5, pnpm, d3-geo, topojson-client, Python
+    技术栈: React 18, Vite 5, pnpm, d3-geo, topojson-client, Python \\
+    GitHub: \href{https://github.com/dok4everak47/metrotype-china}{\texttt{dok4everak47/metrotype-china}}
     \begin{itemize}
         \item 用 Python 脚本从公开资料生成结构化站点 / 线路数据（含经纬度、中英文站名、拼音），覆盖环线（北京 2 / 10 号、上海 4 号）与支线的真实服务区段
         \item 借助 d3-geo 的 geoMercator 投影依真实站序与经纬度绘制路线；手工实现投影变换与 viewBox 自动取景，规避 d3 fitExtent 在多边形上的缩放缺陷，保证线路居中且不变形

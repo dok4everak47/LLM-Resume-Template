@@ -86,7 +86,8 @@
 
     \item[\faCode] \textbf{MetroType China — 数据驱动的地铁主题打字应用}
 
-    以中国大陆四城（北京 / 上海 / 广州 / 深圳）25 条线路、684 座车站的中英文站名为题的打字练习网站；城市与线路存于单一 \texttt{metro.json}，新增城市 / 线路无需改动应用逻辑。技术栈: React 18, Vite 5, pnpm, d3-geo, topojson-client, Python
+    以中国大陆四城（北京 / 上海 / 广州 / 深圳）25 条线路、684 座车站的中英文站名为题的打字练习网站；城市与线路存于单一 \texttt{metro.json}，新增城市 / 线路无需改动应用逻辑。技术栈: React 18, Vite 5, pnpm, d3-geo, topojson-client, Python \\
+    GitHub: \href{https://github.com/dok4everak47/metrotype-china}{\texttt{dok4everak47/metrotype-china}}
     \begin{itemize}
         \item 数据驱动: 四城 25 线路 684 站，Python 脚本从公开资料生成结构化数据（经纬度 / 中英文站名 / 拼音），新增城市 / 线路无需改逻辑
         \item d3-geo geoMercator 依真实站序绘制路线，手工投影变换 + viewBox 自动取景，规避 d3 fitExtent 对多边形的缩放缺陷
