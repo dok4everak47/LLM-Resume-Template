@@ -10,9 +10,9 @@
 
 % === 强制一页:紧缩间距 ===
 \usepackage{geometry}
-\geometry{margin=0.75cm}          % 默认 1.5cm → 0.75cm
-\linespread{1.0}                % 中文默认 1.25 → 1.0
-\titlespacing{\section}{0em}{0.2ex}{0.2ex}  % 节前后间距减半
+\geometry{margin=0.62cm}          % 默认 1.5cm → 0.62cm（单页预留空间）
+\linespread{0.95}               % 中文默认 1.25 → 0.95
+\titlespacing{\section}{0em}{0.1ex}{0.1ex}  % 节前后间距减半
 \setlist[itemize,1]{label=\faAngleRight, nosep, leftmargin=2em, topsep=1pt}
 \setlength{\medskipamount}{1pt}
 \setlength{\parskip}{0pt}
@@ -90,9 +90,13 @@
 
     \item[\faCode] \textbf{MetroType China — 数据驱动的地铁主题打字应用}
 
-    以中国大陆四城（北京 / 上海 / 广州 / 深圳）25 条线路、684 站的中英文站名为题的打字练习网站，采用完全数据驱动架构，新增城市 / 线路无需改动应用逻辑；依真实站序与经纬度经 d3-geo (geoMercator) 投影绘制路线，实现城市概览 → 线路详情 → 打字的两级导航，支持桌面 / 移动端输入法选字的中文输入（IME composition 事件）与 WPM / CPM 实时反馈。
-
-    技术栈: React 18, Vite 5, pnpm, d3-geo, topojson-client, Python
+    以中国大陆四城（北京 / 上海 / 广州 / 深圳）25 条线路、684 座车站的中英文站名为题的打字练习网站；城市与线路存于单一 \texttt{metro.json}，新增城市 / 线路无需改动应用逻辑。技术栈: React 18, Vite 5, pnpm, d3-geo, topojson-client, Python
+    \begin{itemize}
+        \item 用 Python 脚本从公开资料生成结构化站点 / 线路数据（经纬度、中英文站名、拼音），覆盖环线（北京 2 / 10 号、上海 4 号）与支线的真实服务区段
+        \item d3-geo geoMercator 依真实站序绘制路线，手工实现投影变换与 viewBox 自动取景，规避 d3 fitExtent 对多边形的缩放缺陷，保证线路居中不变形
+        \item 完整中文 IME 支持（compositionstart / update / end 事件，选字不中断、简繁归一化）+ 中英文双模式、WPM / CPM、正确率、列车实时推进动画、限时 / 沿线模式
+        \item 两级导航（城市概览 → 线路详情 → 打字）、深色模式、全键盘操作、响应式与 \texttt{prefers-reduced-motion} 无障碍适配
+    \end{itemize}
 \end{itemize}
 
 %======================================================================
