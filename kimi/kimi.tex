@@ -8,14 +8,14 @@
 % Chinese version
 \documentclass[zh]{resume}
 
-% === 强制一页:紧缩间距（已注释，恢复模板默认排版）===
-% \usepackage{geometry}
-% \geometry{margin=0.62cm}          % 默认 1.5cm → 0.62cm（单页预留空间）
-% \linespread{0.95}               % 中文默认 1.25 → 0.95
-% \titlespacing{\section}{0em}{0.1ex}{0.1ex}  % 节前后间距减半
-% \setlist[itemize,1]{label=\faAngleRight, nosep, leftmargin=2em, topsep=1pt}
-% \setlength{\medskipamount}{1pt}
-% \setlength{\parskip}{0pt}
+% === 单页排版:适中间距（非极限压缩）===
+\usepackage{geometry}
+\geometry{margin=0.85cm}         % 模板默认 1.5cm，适度收窄以容纳单页（仍宽松可读）
+\linespread{1.0}                % 中文默认 1.25，适度收窄
+\titlespacing{\section}{0em}{0.3ex}{0.3ex}  % 节前后留白适中
+\setlist[itemize,1]{label=\faAngleRight, nosep, leftmargin=1.8em, topsep=2pt}
+\setlength{\medskipamount}{2pt}
+\setlength{\parskip}{0pt}
 
 % File information shown at the footer of the last page
 \fileinfo{%
@@ -49,7 +49,7 @@
 %======================================================================
 \sectionTitle{个人总结}{\faUser}
 %======================================================================
-具有数学与计算科学背景的 Agent Harness 实践者。从零复现 Claude Code 核心架构（Agent Loop / 工具系统 / 多 Agent 编排 / 记忆与上下文工程），对 LLM Agent 的执行循环、Tool Use、Sub-Agent 分治与 Context Engineering 机制有深入理解。熟悉 TypeScript 与 Python，能独立构建 Agent 工具链与行为评测分析系统，热衷于拆解 Agent 失败模式、推动系统持续进化。
+具有数学与计算科学背景的 Agent Harness 实践者。从零复现 Claude Code 核心架构（Agent Loop / 工具系统 / 多 Agent 编排 / 记忆与上下文工程），对 LLM Agent 的执行循环、Tool Use、Sub-Agent 分治与 Context Engineering 机制有深入理解。熟悉 TypeScript 与 Python，能独立构建 Agent 工具链与行为评测分析系统。
 % \par\vspace{0.3ex}
 % English: Fluent reading and writing — able to read technical papers and documentation,
 % follow overseas AI communities and open-source projects.
@@ -58,11 +58,10 @@
 \sectionTitle{专业技能}{\faWrench}
 %======================================================================
 \begin{itemize}
-    \item \textbf{编程语言}: TypeScript, Python, Node.js
+    \item \textbf{编程语言 / 工具链}: TypeScript, Python, Node.js；Git, CLI 工具开发, 日志分析, Vercel Serverless 部署, API 集成 (Anthropic / OpenAI / DeepSeek)
     \item \textbf{数据处理 / ML}: Pandas, NumPy, scikit-learn（用于 RLHF 偏好数据构建、质量分析与 Agent 行为量化）
     \item \textbf{Agent 工程}: Agent Loop / Tool Use / Sub-Agent 编排 / Prompt Engineering / MCP 协议 / Memory 系统 / Context Engineering
     \item \textbf{大模型}: RLHF 数据构建与质量评估、模型输出分析、多模态 AIGC 评估
-    \item \textbf{工具链}: Git, CLI 工具开发, 日志分析, Vercel Serverless 部署, API 集成 (Anthropic / OpenAI / DeepSeek)
 \end{itemize}
 
 %======================================================================
