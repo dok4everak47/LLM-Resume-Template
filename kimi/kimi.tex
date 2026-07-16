@@ -70,15 +70,14 @@
 \begin{itemize}
             \item[\faCode] \textbf{Claude Code from Scratch — Coding Agent 核心架构复现与扩展}
 
-    从零实现 Claude Code 核心的 Agent Harness 架构，涵盖 Agent Loop、工具系统、上下文压缩与多 Agent 编排等核心模块；harness 核心引擎约 6700 行（TypeScript），配套可视化演练场前端约 6900 行（React / Three.js）。
+    从零复现 Claude Code 核心 Agent Harness 架构，harness 核心引擎约 6700 行（TypeScript），配套可视化演练场前端约 6900 行（React / Three.js）。
 
     技术栈: TypeScript, Node.js, React, Vite, Anthropic / OpenAI API \\
     GitHub: \href{https://github.com/dok4everak47/claude-code-from-scratch}{\texttt{dok4everak47/claude-code-from-scratch}} \quad 线上演示: \href{https://agent-playground-ruddy.vercel.app}{\texttt{agent-playground-ruddy.vercel.app}}
     \begin{itemize}
-        \item 从零实现 Claude Code 核心 Agent Harness 架构: Agent Loop、13 个内置工具、流式并行执行、跨 Provider 消息排序安全网、分层上下文压缩与多类型记忆系统、MCP 协议集成（核心引擎约 6700 行 TypeScript）
-        \item \textbf{实现 Sub-Agent 分治架构（fork-return）}: 主 Agent 派生 explore / plan / general 子 Agent，借只读权限隔离保护主会话上下文，自定义发现机制支撑复杂任务自动拆解
-        \item 构建 Multi-Agent 可视化演练场（React + react-three-fiber 3D）: 真实 LLM 驱动 Coordinator 委派 + 子 Agent 并发（fan-out / debate / pipeline / DAG），内置代码审查 / 研究报告 / 客服 3 套协作场景，已部署上线
-        \item 配套 Agent 行为评测: 并行驱动 默认 / 激进 / 保守 三档策略，按墙钟时间对齐多泳道，LLM 自动判定最优策略并生成 Trace 瀑布图与可导出报告
+        \item 从零实现核心 Agent Harness: Agent Loop、13 内置工具、流式并行、分层上下文压缩与多类型记忆、MCP 协议集成
+        \item \textbf{Sub-Agent 分治架构（fork-return）}: 主 Agent 派生 explore / plan / general 子 Agent，借只读权限隔离保护主会话上下文
+        \item Multi-Agent 可视化演练场（React + react-three-fiber 3D，已部署上线）: 真实 LLM 驱动 Coordinator 委派 + 子 Agent 并发（fan-out / debate / pipeline / DAG），内置 3 套协作场景
     \end{itemize}
 
     \vspace{0.6ex}
@@ -89,10 +88,9 @@
 
     以中国大陆四城（北京 / 上海 / 广州 / 深圳）25 条线路、684 座车站的中英文站名为题的打字练习网站；城市与线路存于单一 \texttt{metro.json}，新增城市 / 线路无需改动应用逻辑。技术栈: React 18, Vite 5, pnpm, d3-geo, topojson-client, Python
     \begin{itemize}
-        \item 用 Python 脚本从公开资料生成结构化站点 / 线路数据（经纬度、中英文站名、拼音），覆盖环线（北京 2 / 10 号、上海 4 号）与支线的真实服务区段
-        \item d3-geo geoMercator 依真实站序绘制路线，手工实现投影变换与 viewBox 自动取景，规避 d3 fitExtent 对多边形的缩放缺陷，保证线路居中不变形
-        \item 完整中文 IME 支持（compositionstart / update / end 事件，选字不中断、简繁归一化）+ 中英文双模式、WPM / CPM、正确率、列车实时推进动画、限时 / 沿线模式
-        \item 两级导航（城市概览 → 线路详情 → 打字）、深色模式、全键盘操作、响应式与 \texttt{prefers-reduced-motion} 无障碍适配
+        \item 数据驱动: 四城 25 线路 684 站，Python 脚本从公开资料生成结构化数据（经纬度 / 中英文站名 / 拼音），新增城市 / 线路无需改逻辑
+        \item d3-geo geoMercator 依真实站序绘制路线，手工投影变换 + viewBox 自动取景，规避 d3 fitExtent 对多边形的缩放缺陷
+        \item 完整中文 IME 支持（composition 事件，选字不中断、简繁归一化）+ 中英文双模式、WPM / CPM、两级导航、深色模式、全键盘与响应式无障碍
     \end{itemize}
 \end{itemize}
 
