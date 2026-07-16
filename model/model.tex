@@ -73,10 +73,9 @@
     技术栈: TypeScript, Node.js, Anthropic / OpenAI API \\
     GitHub: \href{https://github.com/dok4everak47/claude-code-from-scratch}{\texttt{dok4everak47/claude-code-from-scratch}}
     \begin{itemize}
-        \item 完整构建 Agent 执行循环与 13 个内置工具，支持流式并行执行、跨 Provider 消息排序安全网、分层上下文压缩与多类型记忆系统、MCP 协议集成
-        \item \textbf{实现 Sub-Agent 分治架构（fork-return）}: 主 Agent 派生 explore / plan / general 三类子 Agent，借工具权限隔离（探索 / 规划仅只读）保护主会话上下文；自定义 agent 发现机制支撑复杂任务自动拆解（核心实现约 200 行）
-        \item 开发 Agent Tool System Demo（React + Vite + Tailwind）: 预设场景展示推理与安全网恢复，自由模式接入真实 LLM API 与 Wikipedia / 汇率 / 词典等公开工具，对比模式并行 3 种 System Prompt 并输出量化指标；Vercel Proxy 保护 API Key
-        \item 构建 Multi-Agent 可视化演练场（React + TypeScript，SVG 2D 树状编排 + react-three-fiber (Three.js) 3D 场景）: 实时呈现 Sub-Agent 委派 / 进度 / 结果流，内置代码审查、研究报告、客服 3 向分流 3 套协作场景；经 Vercel 部署上线（agent-playground-ruddy.vercel.app）
+        \item 从零实现 Claude Code 核心 Agent Harness 架构: Agent Loop、13 个内置工具、流式并行执行、分层上下文压缩与多类型记忆系统、MCP 协议集成（总代码量约 5000 行）
+        \item \textbf{实现 Sub-Agent 分治架构（fork-return）}: 主 Agent 派生 explore / plan / general 子 Agent，借只读权限隔离保护主会话上下文，支撑复杂任务自动拆解
+        \item 构建 Multi-Agent 可视化演练场（React + react-three-fiber 3D）: 实时呈现子 Agent 委派 / 进度 / 结果流，内置代码审查、研究报告、客服 3 套协作场景，已 Vercel 部署上线
     \end{itemize}
 
     \vspace{0.6ex}
